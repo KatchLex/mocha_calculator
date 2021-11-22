@@ -7,9 +7,7 @@
     "test": "test"
   },
   "dependencies": {
-    "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
-    "mocha": "^6.2.0",
     "mochawesome": "^4.0.1",
     "nyc": "^14.1.1"
   },
@@ -32,12 +30,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stranger2626/mocha-unit-testing-example.git"
+    "url": "git+https://github.com/KatchLex/mocha_calculator.git"
   },
   "author": "Matsvei Murashka",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/stranger2626/mocha-unit-testing-example/issues"
+    "url": "https://github.com/KatchLex/mocha_calculator/issues"
   },
-  "homepage": "https://github.com/stranger2626/mocha-unit-testing-example#readme"
+  "homepage": "https://github.com/KatchLex/mocha_calculator#readme",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3"
+  }
 }
