@@ -16,60 +16,59 @@ describe('calculator', function() {
         calculator = null;
     });
 
-    it('should return 5 when receives 1 and 2 and 2', function() {
-        expect(calculator.addNumbers(1, -2, 2)).to.be.equal(1);
+    it('should add up positive values', function() {
+        expect(calculator.addNumbers(333333.33, 333333.33, 333333.34)).to.be.equal(1000000);
     });
 
-    it('should throw an error if provided with a not a number', function() {
-        let callWithError = () => calculator.addNumbers('f', 0, 5);
+    it('should add up negative values', function() {
+        expect(calculator.addNumbers(-333333.33, -333333.33, -333333.34)).to.be.equal(-1000000);
+    });
+
+    it('should throw error if provided with not a number', function() {
+        let callWithError = () => calculator.addNumbers('string', 0, 5);
         expect(spy).to.be.a.spy;
         expect(callWithError).to.throw("Not all varaibles are of type 'Number'");
     });
 
-    it('should throw an error if provided with a not a number', function() {
-        let callWithError = () => calculator.addNumbers(f, 0, 5);
+    it('should throw error if provided with a variable name', function() {
+        let callWithError = () => calculator.addNumbers(variable, 100500, 19);
         expect(spy).to.be.a.spy;
-        expect(callWithError).to.throw("f is not defined");
+        expect(callWithError).to.throw("variable is not defined");
     });
 
-    it('should perform correct multiplication', function() {
+    it('should correctly multiply values', function() {
         expect(calculator.muliplyNumbers(1, 12345679, 9)).to.be.equal(111111111);
     });
 
-    it('should return 0 when receives a 0', function() {
-        expect(calculator.muliplyNumbers(1, 0, -548)).to.be.equal(0);
-    });
-
-    it('should be positive if 2 numbers are negative', function() {
-        expect(calculator.muliplyNumbers(1, -1, -548)).to.be.above(0);
+    it('should be positive if all 3 numbers are positive', function() {
+        expect(calculator.muliplyNumbers(10, 11258, 548)).to.be.above(0);
     });
 
     it('should be negative if 1 number is negative', function() {
-        expect(calculator.muliplyNumbers(1, 1, -548)).to.be.below(0);
+        expect(calculator.muliplyNumbers(10, 11258, -548)).to.be.below(0);
     });
 
-    it('should be negative if 3 number are negative', function() {
+    it('should be positive if 2 numbers are negative', function() {
+        expect(calculator.muliplyNumbers(15, -1, -148)).to.be.above(0);
+    });
+
+    it('should be negative if all 3 numbers are negative', function() {
         expect(calculator.muliplyNumbers(-1, -1, -548)).to.be.below(0);
     });
 
-    it('should throw an error if provided with not a number', function() {
-        let callWithError = () => calculator.muliplyNumbers('f', 0, 5);
+    it('should return 0 when any number is 0', function() {
+        expect(calculator.muliplyNumbers(1, 0, -548)).to.be.equal(0);
+    });
+
+    it('should throw error if provided with not a number', function() {
+        let callWithError = () => calculator.muliplyNumbers('string', 0, 5);
         expect(spy).to.be.a.spy;
         expect(callWithError).to.throw("Not all varaibles are of type 'Number'");
     });
 
-    it('should throw an error if provided with a not a number', function() {
-        let callWithError = () => calculator.muliplyNumbers(f, 'd', d);
+    it('should throw error if provided with a variable name', function() {
+        let callWithError = () => calculator.muliplyNumbers(100500, variable, 19);
         expect(spy).to.be.a.spy;
-        expect(callWithError).to.throw("f is not defined");
+        expect(callWithError).to.throw("variable is not defined");
     });
-
-    // it('should be called twice when provided with 2', function() {
-    //     factorial.factorialSimple(2);
-    //     expect(spy).to.have.been.called(1);
-    // });
-
-    // it('should return 1 when provided 1', function() {
-    //     expect(factorial.factorialSimple(1)).to.be.equal(1);
-    // });
 })
